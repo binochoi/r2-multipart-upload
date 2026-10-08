@@ -1,0 +1,79 @@
+{
+  "name": "r2-multipart-upload",
+  "version": "0.0.1",
+  "description": "Resumable multipart and presigned-URL direct uploads from the browser to Cloudflare R2, for Cloudflare Workers. Framework-agnostic server helpers (presign, multipart management) and a chunked upload engine with pause/resume and progress.",
+  "type": "module",
+  "license": "MIT",
+  "author": "binochoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/r2-multipart-upload.git"
+  },
+  "homepage": "https://github.com/binochoi/r2-multipart-upload#readme",
+  "bugs": {
+    "url": "https://github.com/binochoi/r2-multipart-upload/issues"
+  },
+  "keywords": [
+    "cloudflare-r2",
+    "r2",
+    "cloudflare",
+    "cloudflare-workers",
+    "workers",
+    "s3",
+    "s3-compatible",
+    "presigned-url",
+    "presign",
+    "signed-url",
+    "multipart-upload",
+    "resumable-upload",
+    "chunked-upload",
+    "direct-upload",
+    "browser-upload",
+    "large-file-upload",
+    "file-upload",
+    "upload",
+    "upload-progress",
+    "pause-resume",
+    "aws4fetch",
+    "webcrypto",
+    "edge",
+    "serverless",
+    "framework-agnostic",
+    "hono",
+    "typescript"
+  ],
+  "exports": {
+    "./shared": {
+      "types": "./dist/shared.d.mts",
+      "import": "./dist/shared.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.mts",
+      "import": "./dist/server.mjs"
+    },
+    "./client": {
+      "types": "./dist/client.d.mts",
+      "import": "./dist/client.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepare": "obuild --stub",
+    "build:dist": "obuild",
+    "release": "pnpm build:dist && pnpm publish --ignore-scripts",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "oxlint ./src && tsc --noEmit"
+  },
+  "dependencies": {
+    "aws4fetch": "^1.0.20"
+  },
+  "devDependencies": {
+    "obuild": "^0.4.38",
+    "oxlint": "^1.67.0",
+    "typescript": "^7.0.2"
+  }
+}

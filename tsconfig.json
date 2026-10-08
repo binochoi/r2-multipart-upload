@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    // client.mts 는 브라우저, server.mts 는 워커 런타임에서 돈다. 둘 다 표준 web API 만 쓰고
+    // R2 바인딩 타입(@cloudflare/workers-types)에 의존하지 않으므로 DOM lib 만 둔다.
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": []
+  },
+  "include": ["src", "build.config.ts"]
+}
